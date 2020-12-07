@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get 'sign_up' => 'users#new', as: 'sign_up'
+  get 'sign_in' => 'sessions#new', as: 'sign_in'
+  get 'sign_out' => 'sessions#destroy', as: 'sign_out'
+  
+  resources :posts, only: %i[index create]
+  resources :users, only: %i[index create]
 end
