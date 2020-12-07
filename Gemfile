@@ -49,7 +49,6 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'capybara'
-  gem 'selenium-webdriver'
   gem 'shoulda', '~> 3.5'
   gem 'webdrivers'
 end

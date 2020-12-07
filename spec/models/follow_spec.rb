@@ -12,7 +12,7 @@ RSpec.describe Follow, type: :model do
   end
 
   describe 'ActiveRecord associations' do
-    it { should belong_to(:user) } 
+    it { should belong_to(:user) }
     it { should belong_to(:follow) }
   end
 end

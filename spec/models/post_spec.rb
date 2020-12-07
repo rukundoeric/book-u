@@ -9,7 +9,7 @@ RSpec.describe Post, type: :model do
     expect(post2.valid?).to be(true)
   end
 
-  describe "ActiveRecord Association" do
-    it { should belong_to(:user) } 
+  describe 'ActiveRecord Association' do
+    it { should belong_to(:user) }
   end
 end
