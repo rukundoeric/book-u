@@ -1,12 +1,18 @@
 class User < ApplicationRecord
-  has_many :posts
+  has_many :opinions, class_name: 'Opinion', foreign_key: 'author_id'
 
-  has_many :follows_user, class_name: 'Follow', foreign_key: 'user_id'
-  has_many :followings, through: :follows_user, source: :follow
+  has_many :follower_recs, class_name: 'Following', foreign_key: 'follower_id'
+  has_many :followings, through: :follower_recs, source: :follower
 
-  has_many :follows_follow, class_name: 'Follow', foreign_key: 'follow_id'
-  has_many :followers, through: :follows_follow, source: :user
+  has_many :followed_recs, class_name: 'Following', foreign_key: 'followed_id'
+  has_many :followers, through: :followed_recs, source: :followed
 
-  validates :name, :username, presence: true, length: { minimum: 3 }
+  has_attached_file :photo
+  has_attached_file :cover
+
+  validates :fullname, :username, presence: true, length: { minimum: 3 }
+  # validates :photo, presence: true
   validates :username, uniqueness: true
+  validates_attachment_content_type :photo, content_type: ['image/jpg', 'image/jpeg', 'image/png'], presence: true
+  validates_attachment_content_type :cover, content_type: ['image/jpg', 'image/jpeg', 'image/png'], presence: true
 end
