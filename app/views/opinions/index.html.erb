@@ -2,6 +2,46 @@
   <%= render 'shared/left_navigation' %>
   <div class="content">
     <%= render 'shared/top_navigation' %>
-    
+    <div class="d-flex main-content">
+      <div class="tweets d-flex flex-column">
+        <div class="header">
+          <span class="ml-5 header-text">OPINIONS</span>
+        </div>
+        <div class="tweets_content px-5 d-flex flex-column">
+           <div class="add_tweet d-flex flex-column p-4 mt-4">
+             <%= form_with model: @opinion do |f| %>
+                <div class="field d-flex flex-column">
+                  <%= f.label :text, 'GIVE OPINION' %>
+                  <%= f.text_field :text, placeholder: 'Compose new opinion', class: 'pl-3' %>
+                </div>
+                <div class="action">
+                  <%= f.submit 'tweet', class: 'd-none' %>
+                </div>
+             <% end %>
+           </div>
+           <div class="tweet_list py-3 px-4 mt-4 mb-3">
+            <span class="title">23 OPINIONS</span> 
+            <div class="line mt-3"></div>
+            <div class="list mt-3">
+              <%= render 'shared/opinion_item' %>
+              <%= render 'shared/opinion_item' %>
+              <%= render 'shared/opinion_item' %>
+              <%= render 'shared/opinion_item' %>
+              <%= render 'shared/opinion_item' %>
+              <%= render 'shared/opinion_item' %>
+              <%= render 'shared/opinion_item' %>
+              <%= render 'shared/opinion_item' %>
+              <%= render 'shared/opinion_item' %>
+            </div>
+           </div>
+        </div>
+      </div>
+      <div class="user-to-follow">
+        <div class="header d-flex justify-content-between pr-3">
+          <span class="ml-5 header-text">WHO TO FOLLOW</span>
+          <span><i class="icon-refresh header-text mr-5"></i></span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

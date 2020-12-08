@@ -115,3 +115,93 @@ $color_7: #4c9ad62a;
     }
   }
 }
+
+.main-content {
+  height: calc(100vh - 80px);
+
+  .tweets {
+    flex: 2;
+
+    .tweets_content {
+      height: 100%;
+      border-right: 1px solid $color_6;
+
+      .add_tweet {
+        background-color: white;
+        border-radius: 10px;
+
+        label {
+          font-size: 13px;
+          font-weight: 500;
+          color: $color_5;
+        }
+
+        input {
+          height: 40px;
+          border: 1px solid $color_6;
+          color: $color_5;
+        }
+      }
+
+      .tweet_list {
+        background-color: white;
+        border-radius: 10px;
+        flex: 2;
+
+        .title {
+          font-size: 15px;
+          font-weight: 600;
+          color: $color_3;
+        }
+
+        .line {
+          border-bottom: 1px solid $color_6;
+        }
+
+        .list {
+          max-height: 300px;
+          overflow-y: scroll;
+        }
+
+        .opinion_item {
+          .left_nav_p_image {
+            width: 50px;
+            height: 50px;
+            border: 2px solid $color_3;
+            border-radius: 6px;
+            color: $color_5;
+            object-fit: cover;
+          }
+
+          a {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 800;
+            color: $color_5;
+          }
+
+          p {
+            color: rgb(165, 165, 165);
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  .header {
+    border-bottom: 1px solid $color_6;
+    padding: 26px 0;
+    border-right: 1px solid $color_6;
+
+    .header-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: $color_5;
+    }
+  }
+
+  .user-to-follow {
+    width: 380px;
+  }
+}

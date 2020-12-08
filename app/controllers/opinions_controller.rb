@@ -1,5 +1,6 @@
 class OpinionsController < ApplicationController
   before_action :require_login
+  before_action :initialize_opinion
   LIMIT_PER_LOAD = 5
 
   def index
@@ -15,12 +16,16 @@ class OpinionsController < ApplicationController
 
   private
 
+  def initialize_opinion
+    @opinion = Opinion.new
+  end
+
   def opinion_params
     params.require(:opinion).permit(:text)
   end
 
   def offset
-    page = params.fetch(:page, 0).to_i
-    page * LIMIT_PER_LOAD
+    @page = params.fetch(:page, 0).to_i
+    @page * LIMIT_PER_LOAD
   end
 end

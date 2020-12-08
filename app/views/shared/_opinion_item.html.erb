@@ -1,0 +1,16 @@
+<div class="opinion_item d-flex flex-row">
+  <% if current_user.photo %>
+  <%= image_tag current_user.photo.url, class: 'left_nav_p_image ml-3 mt-1' %>
+  <% else %>
+  <div class="left_nav_p_image d-flex justify-content-center mt-1 align-items-center ml-3">
+    <i class="icon-user"></i>
+  </div>
+  <% end %>
+  <div class="d-flex flex-column ml-3">
+    <%= link_to current_user.fullname, current_user, class: '' %>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum facilis eligendi sunt natus vel dolorum libero
+      mollitia, quibusdam voluptatum error sit nesciunt? Labore.
+    </p>
+  </div>
+</div>
