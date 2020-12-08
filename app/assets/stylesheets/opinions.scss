@@ -1,3 +1,117 @@
 // Place all the styles related to the opinions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+$color_1: #213246;
+$color_4: #1f2c3a96;
+$color_2: #f5f6f8;
+$color_5: #9b9b9b;
+$color_6: rgb(216, 216, 216);
+$color_3: #4c9bd6;
+$color_7: #4c9ad62a;
+
+.content {
+  flex: 2;
+  background-color: $color_2;
+}
+
+.left_nav {
+  height: 100vh;
+  // position: fixed;
+  width: 300px;
+  background-color: $color_1;
+
+  .profile {
+    height: 80px;
+    border-bottom: 2px solid $color_4;
+
+    .left_nav_p_image {
+      width: 50px;
+      height: 50px;
+      border: 2px solid $color_3;
+      border-radius: 9px;
+      color: $color_5;
+      object-fit: cover;
+    }
+
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      color: $color_5;
+    }
+  }
+
+  .profile-info {
+    border-bottom: 2px solid $color_4;
+
+    div {
+      flex: 1;
+
+      span {
+        color: $color_6;
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      small {
+        color: $color_5;
+      }
+
+      &:nth-of-type(1) {
+        border-right: 2px solid $color_4;
+      }
+    }
+  }
+
+  .menu {
+    .menu_item {
+      cursor: pointer;
+      border-bottom: 1px solid $color_4;
+
+      a,
+      i {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      &:hover {
+        background-color: $color_7;
+      }
+    }
+
+    .menu_item.active {
+      background-color: $color_3;
+    }
+  }
+}
+
+.top_nav {
+  background-color: $color_3;
+
+  .logo {
+    font-size: 20px;
+    font-weight: 800;
+    font-style: italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+  }
+
+  .menu-icon {
+    color: white;
+    font-size: 20px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    cursor: pointer;
+
+    .icon-bell {
+      font-weight: 800;
+    }
+
+    &:hover {
+      background-color: rgba(33, 87, 187, 0.185);
+    }
+  }
+}

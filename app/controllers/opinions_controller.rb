@@ -1,4 +1,5 @@
 class OpinionsController < ApplicationController
+  before_action :require_login
   LIMIT_PER_LOAD = 5
 
   def index
