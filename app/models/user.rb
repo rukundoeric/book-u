@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :opinions, class_name: 'Opinion', foreign_key: 'author_id'
+  has_many :notifications
 
   has_many :follower_recs, class_name: 'Following', foreign_key: 'follower_id'
   has_many :followed_recs, class_name: 'Following', foreign_key: 'followed_id'
