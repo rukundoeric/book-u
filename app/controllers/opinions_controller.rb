@@ -4,13 +4,14 @@ class OpinionsController < ApplicationController
   LIMIT_PER_LOAD = 5
 
   def index
-    @opinions ||= []
-    @opinions += Opinion.offset(offset).limit(LIMIT_PER_LOAD)
+    @opinions = Opinion.where('author_id IN (?)', current_user.followings.ids << current_user.id)
+      .offset(offset).limit(LIMIT_PER_LOAD).ordered_by_most_recent
+    @users_to_follow = User.where('id NOT IN (?)', current_user.followings.ids << current_user.id)
   end
 
   def create
     @opinion = current_user.opinions.build(opinion_params)
-    flash[:alert] = 'SOMETHING WENT WRONG!' unless @post.save
+    flash[:alert] = 'SOMETHING WENT WRONG!' unless @opinion.save
     redirect_to request.referer
   end
 

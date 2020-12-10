@@ -12,26 +12,18 @@
              <%= form_with model: @opinion do |f| %>
                 <div class="field d-flex flex-column">
                   <%= f.label :text, 'GIVE OPINION' %>
-                  <%= f.text_field :text, placeholder: 'Compose new opinion', class: 'pl-3' %>
+                  <%= f.text_area :text, placeholder: 'Compose new opinion', class: 'p-2 textarea' %>
                 </div>
                 <div class="action">
-                  <%= f.submit 'tweet', class: 'd-none' %>
+                  <%= f.submit 'POST', class: 'mt-2 post_buttton py-2 px-5' %>
                 </div>
              <% end %>
            </div>
            <div class="tweet_list py-3 px-4 mt-4 mb-3">
-            <span class="title">23 OPINIONS</span> 
+            <span class="title"><%= @opinions.count %> OPINIONS</span> 
             <div class="line mt-3"></div>
             <div class="list mt-3">
-              <%= render 'shared/opinion_item' %>
-              <%= render 'shared/opinion_item' %>
-              <%= render 'shared/opinion_item' %>
-              <%= render 'shared/opinion_item' %>
-              <%= render 'shared/opinion_item' %>
-              <%= render 'shared/opinion_item' %>
-              <%= render 'shared/opinion_item' %>
-              <%= render 'shared/opinion_item' %>
-              <%= render 'shared/opinion_item' %>
+              <%= display_opinions @opinions %>
             </div>
            </div>
         </div>
@@ -40,6 +32,9 @@
         <div class="header d-flex justify-content-between pr-3">
           <span class="ml-5 header-text">WHO TO FOLLOW</span>
           <span><i class="icon-refresh header-text mr-5"></i></span>
+        </div>
+        <div class="list p-3">
+          <%= display_users @users_to_follow, 'NO USER TO FOLLOW' %>
         </div>
       </div>
     </div>

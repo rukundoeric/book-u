@@ -10,11 +10,12 @@ class FollowingsController < ApplicationController
 
   def destroy
     flash[:alert] = 'SOMETHING WENT WRONG!' unless @following.destroy
+    redirect_to request.referer
   end
 
   private
 
   def set_following
-    @follow = Following.find_by(follower_id: current_user.id, followed_id: params[:followed_id])
+    @following = Following.find_by(follower_id: params[:follower_id], followed_id: params[:followed_id])
   end
 end

@@ -1,40 +1,32 @@
-<nav class="left_nav">
-  <div class="profile d-flex align-items-center">
-    <% if current_user.photo %>
-    <%= image_tag current_user.photo.url, class: 'left_nav_p_image ml-3' %>
-    <% else %>
-    <div class="left_nav_p_image d-flex justify-content-center align-items-center ml-3">
-      <i class="icon-user"></i>
+<nav class="left_nav_container">
+  <div class="left_nav">
+    <div class="profile d-flex align-items-center">
+      <%= profile_image current_user, 'left_nav_p_image' %>
+      <%= link_to current_user.fullname, current_user, class: 'ml-2' %>
     </div>
-    <% end %>
-    <%= link_to current_user.fullname, current_user, class: 'ml-2' %>
-  </div>
-  <div class="profile-info d-flex py-3">
-    <div class="followings d-flex flex-column justify-content-center align-items-center">
-      <span><%= current_user.followings.count %></span>
-      <small>Followings</small>
+    <div class="profile-info d-flex py-3">
+      <div class="followings d-flex flex-column justify-content-center align-items-center">
+        <span><%= current_user.followings.count %></span>
+        <small>Followings</small>
+      </div>
+      <div class="followers d-flex flex-column justify-content-center align-items-center">
+        <span><%= current_user.followers.count %></span>
+        <small>Followers</small>
+      </div>
     </div>
-    <div class="followers d-flex flex-column justify-content-center align-items-center">
-      <span><%= current_user.followers.count %></span>
-      <small>Followers</small>
+    <div class="menu d-flex flex-column">
+      <div class="menu_item d-flex py-3 <%= active 'opinions' %> align-items-center">
+        <i class="icon-home mx-4"></i>
+        <%= link_to "Home", root_path %>
+      </div>
+      <div class="menu_item d-flex py-3 <%= active 'users' %> align-items-center">
+        <i class="icon-user mx-4"></i>
+        <%= link_to "Profile", current_user %>
+      </div>
+      <div class="menu_item d-flex py-3 align-items-center">
+        <i class="icon-logout mx-4"></i>
+        <%= link_to "Logout", sign_out_path %>
+      </div>
     </div>
-  </div>
-  <div class="menu d-flex flex-column">
-    <div class="menu_item d-flex py-3 <%= active 'opinions' %> active align-items-center">
-       <i class="icon-home mx-4"></i>
-       <%= link_to "Home", root_path %>
-    </div> 
-    <div class="menu_item d-flex py-3 <%= active 'users' %> align-items-center">
-       <i class="icon-user mx-4"></i>
-       <%= link_to "Profile", current_user %>
-    </div> 
-    <div class="menu_item d-flex py-3 align-items-center">
-       <i class="icon-logout mx-4"></i>
-       <%= link_to "Logout", sign_out_path %>
-    </div> 
   </div>
 </nav>
-<%
- puts params.as_json
- puts "hELLO THERE"
-%>

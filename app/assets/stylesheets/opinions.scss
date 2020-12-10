@@ -14,24 +14,20 @@ $color_7: #4c9ad62a;
   background-color: $color_2;
 }
 
+.left_nav_container {
+  height: 100vh;
+  width: 300px;
+}
+
 .left_nav {
   height: 100vh;
-  // position: fixed;
+  position: fixed;
   width: 300px;
   background-color: $color_1;
 
   .profile {
     height: 80px;
     border-bottom: 2px solid $color_4;
-
-    .left_nav_p_image {
-      width: 50px;
-      height: 50px;
-      border: 2px solid $color_3;
-      border-radius: 9px;
-      color: $color_5;
-      object-fit: cover;
-    }
 
     a {
       text-transform: uppercase;
@@ -94,7 +90,7 @@ $color_7: #4c9ad62a;
     font-size: 20px;
     font-weight: 800;
     font-style: italic;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: white;
   }
 
@@ -117,13 +113,13 @@ $color_7: #4c9ad62a;
 }
 
 .main-content {
-  height: calc(100vh - 80px);
+  // height: calc(100vh - 80px);
 
   .tweets {
     flex: 2;
 
     .tweets_content {
-      height: 100%;
+      // height: 100%;
       border-right: 1px solid $color_6;
 
       .add_tweet {
@@ -136,10 +132,8 @@ $color_7: #4c9ad62a;
           color: $color_5;
         }
 
-        input {
-          height: 40px;
-          border: 1px solid $color_6;
-          color: $color_5;
+        .action {
+          position: relative;
         }
       }
 
@@ -159,32 +153,60 @@ $color_7: #4c9ad62a;
         }
 
         .list {
-          max-height: 300px;
-          overflow-y: scroll;
+          // max-height: 300px;
+          // overflow-y: scroll;
         }
+      }
+    }
+  }
 
-        .opinion_item {
-          .left_nav_p_image {
-            width: 50px;
-            height: 50px;
-            border: 2px solid $color_3;
-            border-radius: 6px;
-            color: $color_5;
-            object-fit: cover;
-          }
+  .post_buttton {
+    // display: none;
+    border: 0;
+    background-color: $color_3;
+    color: white;
+    float: right;
+  }
 
-          a {
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 800;
-            color: $color_5;
-          }
+  .textarea {
+    height: 50px;
+    border: 1px solid $color_6;
+    color: $color_5;
+  }
 
-          p {
-            color: rgb(165, 165, 165);
-            font-size: 14px;
-          }
-        }
+  .textarea:focus {
+    height: 100px;
+    outline: none;
+  }
+
+  .opinion_item {
+    .opinion-info {
+      a {
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 800;
+        color: $color_5;
+      }
+
+      p {
+        color: rgb(165, 165, 165);
+        font-size: 14px;
+      }
+    }
+  }
+
+  .user_item {
+    .user-info {
+      a {
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 800;
+        color: rgb(139, 139, 139);
+      }
+
+      small {
+        color: rgb(165, 165, 165);
+        font-size: 14px;
       }
     }
   }
@@ -203,5 +225,120 @@ $color_7: #4c9ad62a;
 
   .user-to-follow {
     width: 380px;
+
+    .user-profile-div {
+      .profile {
+        height: 225px;
+
+        span {
+          font-size: 15px;
+          color: #505050;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .profile-info {
+      border-top: 1px solid $color_6;
+      border-bottom: 1px solid $color_6;
+
+      div {
+        flex: 1;
+
+        span {
+          color: $color_5;
+          font-size: 15px;
+          font-weight: 700;
+        }
+
+        small {
+          color: $color_5;
+        }
+
+        &:nth-of-type(1),
+        &:nth-of-type(2) {
+          border-right: 1px solid $color_6;
+        }
+      }
+    }
+  }
+}
+
+.header-scrolled {
+  position: fixed;
+  margin-top: 0 !important;
+  right: 0;
+  left: 300px;
+  top: 0;
+  z-index: 1;
+  transition: all 3s ease-in-out;
+}
+
+.cover_image {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    object-fit: cover;
+    position: absolute;
+  }
+
+  .space {
+    cursor: pointer;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    &:hover {
+      background-color: rgba(73, 73, 73, 0.527);
+    }
+  }
+}
+
+.upload_cover_buttton {
+  border: 2px solid white;
+  color: white;
+  background-color: transparent;
+}
+
+.left_nav_p_image {
+  width: 50px;
+  height: 50px;
+  border: 2px solid $color_3;
+  border-radius: 9px;
+  color: $color_5;
+  object-fit: cover;
+}
+
+.item_p_image {
+  width: 50px;
+  height: 50px;
+  border-radius: 9px;
+  color: $color_5;
+  object-fit: cover;
+}
+
+.user_item_p_image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: $color_5;
+  object-fit: cover;
+}
+
+.no_data {
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgb(156, 156, 156);
+
+  &::before,
+  &::after {
+    content: '----';
   }
 }
