@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
   validates_attachment_content_type :photo, content_type: ['image/jpg', 'image/jpeg', 'image/png'], presence: true
   validates_attachment_content_type :cover, content_type: ['image/jpg', 'image/jpeg', 'image/png'], presence: true
-  
+
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
 
   def following?(user)
