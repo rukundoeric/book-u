@@ -12,8 +12,8 @@ class OpinionsController < ApplicationController
   def create
     @opinion = current_user.opinions.build(opinion_params)
     flash[:alert] = 'SOMETHING WENT WRONG!' unless @opinion.save
-    send_notification(type: 'new_post')
-    redirect_to notifications_path(type: 'new_opinion', redirec: request.referer)
+    send_notification('new_opinion')
+    redirect_to request.referer
   end
 
   private

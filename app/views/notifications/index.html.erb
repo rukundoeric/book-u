@@ -2,6 +2,9 @@
   <%= render 'shared/left_navigation' %>
   <div class="content">
     <%= render 'shared/top_navigation' %>
+    <% if notice || alert %>
+    <%= render 'shared/taskbar'%>
+    <% end %>
     <div class="d-flex main-content">
       <div class="tweets d-flex flex-column">
         <div class="header">
@@ -10,7 +13,7 @@
         <div class="tweets_content px-5 d-flex flex-column">
            <div class="tweet_list py-3 px-4 mt-4 mb-3">
             <div class="list mt-3">
-              <%= display_notifications current_user.notifications %>
+              <%= display_notifications @notifications %>
             </div>
            </div>
         </div>

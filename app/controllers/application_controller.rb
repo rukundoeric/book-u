@@ -11,12 +11,10 @@ class ApplicationController < ActionController::Base
     case type
     when 'follow'
       user = User.find(receiver)
-      notification = user.notifications
-        .build(title: 'Following', content: "#{current_user.fullname} started following you!")
-      if notification.save
-        ActionCable.server.broadcast 'room_channel', title: notification.title, content: notification.content
-      end
+      user.notifications
+        .build(title: 'Following', content: "#{current_user.fullname} started following you!").save
     when 'new_opinion'
+      puts 'new_opinion'
       current_user.followers.each do |u|
         u.notifications
           .build(title: 'New Opinion',

@@ -24,7 +24,7 @@ module ApplicationHelper
       end
     else
       content_tag :div, nil, class: 'no_image d-flex justify-content-center align-items-center ml-3' do
-        tag.i nil, class: 'icon-playlist'
+        tag.i nil, class: 'icon-bubbles'
       end
     end
   end
