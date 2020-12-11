@@ -9,7 +9,7 @@
     <div class="mt-2">
       <div id="profile-image-div" class="profile-pic d-flex justify-content-center align-items-center">
         <label for="user_photo" class="d-flex justify-content-center align-items-center">
-          <%= form.file_field :photo, class: 'd-none' %>
+          <%= form.file_field :photo, accept: 'image/*', class: 'd-none' %>
           <span id="default" class="d-block"><i class="icon-user"></i></span>
           <img id="profile-image" class="d-none"
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWpMt1I4YD-NiUmlnM-PPrUL-6BR84_HTRBw&usqp=CAU"
