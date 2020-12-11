@@ -168,11 +168,6 @@ $color_7: #4c9ad62a;
         .line {
           border-bottom: 1px solid $color_6;
         }
-
-        .list {
-          // max-height: 300px;
-          // overflow-y: scroll;
-        }
       }
     }
   }
@@ -343,6 +338,7 @@ $color_7: #4c9ad62a;
 .item_p_image {
   width: 50px;
   height: 50px;
+  border: 2px solid $color_6;
   border-radius: 9px;
   color: $color_5;
   object-fit: cover;

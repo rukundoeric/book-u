@@ -9,6 +9,7 @@
       <div class="tweets d-flex flex-column">
         <div class="cover_image d-flex justify-content-center align-items-center">
           <%= cover_image @user %>
+          <% if current_user == @user %>
           <div id="cover-image-div" class="space d-flex justify-content-center align-items-center">
             <%= form_with model: @user do |f| %>
             <label for="user_cover" id="change-cover-image" class="upload_cover_buttton py-2 px-3">
@@ -20,6 +21,7 @@
             </div>
             <% end %>
           </div>
+          <% end %>
         </div>
         <div class="header">
           <span class="ml-5 header-text">OPINIONS</span>

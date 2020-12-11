@@ -11,7 +11,7 @@ module ApplicationHelper
     if user.photo.exists?
       image_tag user.photo.url, class: "#{d_style} ml-3"
     else
-      content_tag :div, nil, class: 'no_image d-flex justify-content-center align-items-center ml-3' do
+      content_tag :span, nil, class: 'no_image d-flex justify-content-center align-items-center ml-3' do
         tag.i nil, class: 'icon-user'
       end
     end

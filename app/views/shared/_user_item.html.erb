@@ -1,6 +1,8 @@
 <div class="user_item d-flex justify-content-between align-items-center flex-row py-2">
   <div class="d-flex">
-    <%= profile_image user, 'user_item_p_image' %>
+    <div class="d-block">
+      <%= profile_image user, 'user_item_p_image' %>
+    </div>
     <div class="user-info d-flex flex-column ml-3">
       <%= link_to user.fullname, user_path(user), class: '' %>
       <small><%= "@" + user.username %></small>
