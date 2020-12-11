@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   before_action :initialize_user, only: %i[new create]
 
-  def new;end
+  def new; end
 
   def create
     @user = User.find_by(username: params[:username])
