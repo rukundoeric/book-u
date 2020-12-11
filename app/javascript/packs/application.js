@@ -17,15 +17,3 @@ require("./jquery");
 // const imagePath = (name) => images(name, true)
 
 
-window.$(window).scroll(() => {
-  const windowTop = window.$(window).scrollTop() + 1;
-  if (windowTop > 120) {
-    window
-      .$("#nav-bar-header")
-      .addClass("header-scrolled animated fadeInDown");
-  } else {
-    window
-      .$("#nav-bar-header")
-      .removeClass("header-scrolled animated fadeInDown");
-  }
-});

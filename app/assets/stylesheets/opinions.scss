@@ -95,6 +95,7 @@ $color_7: #4c9ad62a;
   }
 
   .menu-icon {
+    position: relative;
     color: white;
     font-size: 20px;
     width: 46px;
@@ -109,7 +110,23 @@ $color_7: #4c9ad62a;
     &:hover {
       background-color: rgba(33, 87, 187, 0.185);
     }
+
+    .nobe {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgb(28, 240, 0);
+      top: 5px;
+      right: 10px;
+    }
   }
+}
+
+.menu_btns {
+  border: 0;
+  background-color: transparent;
+  outline: none;
 }
 
 .main-content {
@@ -309,6 +326,15 @@ $color_7: #4c9ad62a;
   width: 50px;
   height: 50px;
   border: 2px solid $color_3;
+  border-radius: 9px;
+  color: $color_5;
+  object-fit: cover;
+}
+
+.no_image {
+  width: 50px;
+  height: 50px;
+  border: 2px solid $color_6;
   border-radius: 9px;
   color: $color_5;
   object-fit: cover;

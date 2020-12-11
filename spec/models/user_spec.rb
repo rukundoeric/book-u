@@ -10,6 +10,7 @@ RSpec.describe User, type: :model do
 
   describe 'ActiveRecord associations' do
     it { should have_many(:opinions) }
+    it { should have_many(:notifications) }
     it { should have_many(:follower_recs) }
     it { should have_many(:followings).through(:follower_recs) }
     it { should have_many(:followed_recs) }

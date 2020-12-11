@@ -9,9 +9,8 @@ Rails.application.routes.draw do
   post 'follow' => 'followings#create', as: 'follow' 
   delete 'unfollow' => 'followings#destroy', as: 'unfollow' 
   
-  post 'send_nofification' => 'notifications#create', as: 'send_nofification' 
   resources :sessions, only: %i[new create destroy]
   resources :opinions, only: %i[index create]
   resources :users, only: %i[index new create show update]
-  resources :notifications, only: %i[index]
+  resources :notifications, only: %i[index create]
 end

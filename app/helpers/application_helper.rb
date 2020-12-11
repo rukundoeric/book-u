@@ -11,8 +11,20 @@ module ApplicationHelper
     if user.photo.exists?
       image_tag user.photo.url, class: "#{d_style} ml-3"
     else
-      content_tag :div, nil, class: '${d_style} d-flex justify-content-center align-items-center ml-3' do
+      content_tag :div, nil, class: 'no_image d-flex justify-content-center align-items-center ml-3' do
         tag.i nil, class: 'icon-user'
+      end
+    end
+  end
+
+  def notification_icon(notification)
+    if notification.content.include? 'following'
+      content_tag :div, nil, class: 'no_image d-flex justify-content-center align-items-center ml-3' do
+        tag.i nil, class: 'icon-user-following'
+      end
+    else
+      content_tag :div, nil, class: 'no_image d-flex justify-content-center align-items-center ml-3' do
+        tag.i nil, class: 'icon-playlist'
       end
     end
   end
@@ -52,6 +64,18 @@ module ApplicationHelper
       list.html_safe
     else
       content_tag :span, 'NO OPINION', class: 'no_data text-center'
+    end
+  end
+
+  def display_notifications(notifications)
+    if notifications.any?
+      list = ''
+      notifications.each do |notification|
+        list += render 'shared/notification_item', data: notification
+      end
+      list.html_safe
+    else
+      content_tag :span, 'NO NOTIFICATION YET!', class: 'no_data text-center'
     end
   end
 end
