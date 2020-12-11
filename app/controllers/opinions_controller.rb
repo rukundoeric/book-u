@@ -7,6 +7,7 @@ class OpinionsController < ApplicationController
     @opinions = Opinion.where('author_id IN (?)', current_user.followings.ids << current_user.id)
       .offset(offset).limit(LIMIT_PER_LOAD).ordered_by_most_recent
     @users_to_follow = User.where('id NOT IN (?)', current_user.followings.ids << current_user.id)
+      .ordered_by_most_recent
   end
 
   def create
