@@ -2,9 +2,7 @@
   <%= render 'shared/left_navigation' %>
   <div class="content">
     <%= render 'shared/top_navigation' %>
-    <% if notice || alert %>
-    <%= render 'shared/taskbar'%>
-    <% end %>
+    <%= task_bar %>
     <div class="d-flex main-content">
       <div class="tweets d-flex flex-column">
         <div class="cover_image d-flex justify-content-center align-items-center">

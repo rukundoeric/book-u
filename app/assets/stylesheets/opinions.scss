@@ -181,13 +181,9 @@ $color_7: #4c9ad62a;
   }
 
   .textarea {
-    height: 50px;
+    height: 100px;
     border: 1px solid $color_6;
     color: $color_5;
-  }
-
-  .textarea:focus {
-    height: 100px;
     outline: none;
   }
 

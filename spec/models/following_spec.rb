@@ -5,7 +5,7 @@ RSpec.describe Following, type: :model do
     User.create(fullname: 'eric', username: 'eric')
     User.create(fullname: 'yves', username: 'yves')
 
-    follow = Following.new(follower_id: '', followed_id: '')
+    follow = Following.new(follower_id: nil, followed_id: nil)
     follow2 = Following.new(follower_id: 1, followed_id: 2)
     expect(follow.valid?).to be(false)
     expect(follow2.valid?).to be(true)

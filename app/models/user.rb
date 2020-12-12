@@ -12,11 +12,11 @@ class User < ApplicationRecord
   has_attached_file :cover
 
   validates :fullname, :username, presence: true, length: { minimum: 3 }
-  validates :photo, presence: true
   validates :username, uniqueness: true
   validates_attachment_content_type :photo, content_type: ['image/jpg', 'image/jpeg', 'image/png'], presence: true
   validates_attachment_content_type :cover, content_type: ['image/jpg', 'image/jpeg', 'image/png'], presence: true
 
+  scope :eager_loading, -> { includes(:followers, :followings, :opinions, :notifications, :follower_recs, :followed_recs) }
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
 
   def following?(user)

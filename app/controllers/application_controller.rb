@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
       user.notifications
         .build(title: 'Following', content: "#{current_user.fullname} started following you!").save
     when 'new_opinion'
-      puts 'new_opinion'
       current_user.followers.each do |u|
         u.notifications
           .build(title: 'New Opinion',

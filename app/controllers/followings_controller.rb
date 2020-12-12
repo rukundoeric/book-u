@@ -4,8 +4,11 @@ class FollowingsController < ApplicationController
 
   def create
     @following = Following.new(follower_id: current_user.id, followed_id: params[:followed_id])
-    flash[:alert] = 'SOMETHING WENT WRONG!' unless @following.save
-    send_notification('follow', params[:followed_id])
+    if @following.save
+      send_notification('follow', params[:followed_id])
+    else
+      flash[:alert] = 'SOMETHING WENT WRONG!'
+    end
     redirect_to request.referer
   end
 
