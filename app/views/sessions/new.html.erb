@@ -10,7 +10,6 @@
       <%= form.text_field :username, placeholder: 'Username', class: 'pl-3' %>
     </div>
 
-    <% if @errors.any? %>
     <div class="error_explanation">
       <ul>
         <% @errors.each do |message| %>
@@ -18,7 +17,6 @@
         <% end %>
       </ul>
     </div>
-    <% end %>
 
     <div class="actions">
       <%= form.submit 'Sign In', class: 'px-5 py-2 mt-3' %>

@@ -78,8 +78,13 @@ module ApplicationHelper
       content_tag :span, 'NO NOTIFICATION YET!', class: 'no_data text-center'
     end
   end
-end
 
-def task_bar
-  render 'shared/taskbar' if notice || alert
+  def cover_image_content(user)
+    render 'cover_image', user: user if user == current_user
+  end
+
+  def task_bar
+    render 'shared/taskbar' if notice || alert
+  end
+
 end
