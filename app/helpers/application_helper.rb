@@ -86,4 +86,12 @@ module ApplicationHelper
   def task_bar
     render 'shared/taskbar' if notice || alert
   end
+
+  def taskbar_style
+    if notice
+      'notice'
+    elsif alert
+      'error'
+    end
+  end
 end

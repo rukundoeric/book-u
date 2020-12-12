@@ -1,10 +1,3 @@
-<%
-  if notice
-    taskbar_style = 'notice'
-  elsif alert
-    taskbar_style = 'error'
-  end
-%>
 <div class="<%= taskbar_style %>">
   <div class="taskbar d-flex p-3">
      <span class="text"><%= notice || alert %></span>
