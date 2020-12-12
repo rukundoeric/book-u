@@ -16,7 +16,14 @@ class User < ApplicationRecord
   validates_attachment_content_type :photo, content_type: ['image/jpg', 'image/jpeg', 'image/png'], presence: true
   validates_attachment_content_type :cover, content_type: ['image/jpg', 'image/jpeg', 'image/png'], presence: true
 
-  scope :eager_loading, -> { includes(:followers, :followings, :opinions, :notifications, :follower_recs, :followed_recs) }
+  scope :eager_loading, lambda {
+                          includes(:followers,
+                                   :followings,
+                                   :opinions,
+                                   :notifications,
+                                   :follower_recs,
+                                   :followed_recs)
+                        }
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
 
   def following?(user)
