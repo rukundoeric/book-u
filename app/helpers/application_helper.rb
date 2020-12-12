@@ -86,5 +86,4 @@ module ApplicationHelper
   def task_bar
     render 'shared/taskbar' if notice || alert
   end
-
 end
