@@ -1,0 +1,14 @@
+<div class="user_item d-flex justify-content-between align-items-center flex-row py-2">
+  <div class="d-flex">
+    <div class="d-block">
+      <%= profile_image user, 'user_item_p_image' %>
+    </div>
+    <div class="user-info d-flex flex-column ml-3">
+      <%= link_to user.fullname, user_path(user), class: '' %>
+      <small><%= "@" + user.username %></small>
+    </div>
+  </div>
+  <div class="mr-3 follow_action">
+    <%= follow_button current_user, user %>
+  </div>
+</div>

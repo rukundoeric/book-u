@@ -1,0 +1,11 @@
+<div class="opinion_item d-flex flex-row py-2">
+  <div class="d-bloc">
+     <%= profile_image data.author, 'item_p_image' %>
+  </div>
+  <div class="opinion-info d-flex flex-column ml-3">
+    <%= link_to data.author.fullname, user_path(data.author), class: '' %>
+    <p>
+      <%= data.text %>
+    </p>
+  </div>
+</div>

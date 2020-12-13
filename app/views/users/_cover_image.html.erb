@@ -1,0 +1,11 @@
+<div id="cover-image-div" class="space d-flex justify-content-center align-items-center">
+  <%= form_with model: user do |f| %>
+  <label for="user_cover" id="change-cover-image" class="upload_cover_buttton py-2 px-3">
+    <%= f.file_field  :cover, accept: 'image/*', class: 'd-none' %>
+    <span>CHANGE COVER IMAGE</span>
+  </label>
+  <div class="action d-none" id="set-cover-image">
+    <%= f.submit 'SET COVER IMAGE', class: 'mt-2 post_buttton py-2 px-5' %>
+  </div>
+  <% end %>
+</div>

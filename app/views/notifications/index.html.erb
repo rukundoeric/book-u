@@ -1,0 +1,30 @@
+<div class="d-flex">
+  <%= render 'shared/left_navigation' %>
+  <div class="content">
+    <%= render 'shared/top_navigation' %>
+    <%= task_bar %>
+    <div class="d-flex main-content">
+      <div class="tweets d-flex flex-column">
+        <div class="header">
+          <span class="ml-5 header-text">NOTIFICATIONS</span>
+        </div>
+        <div class="tweets_content px-5 d-flex flex-column">
+           <div class="tweet_list py-3 px-4 mt-4 mb-3">
+            <div class="list mt-3">
+              <%= display_notifications @notifications %>
+            </div>
+           </div>
+        </div>
+      </div>
+      <div class="user-to-follow">
+        <div class="header d-flex justify-content-between pr-3">
+          <span class="ml-5 header-text">WHO TO FOLLOW</span>
+          <span><i class="icon-refresh header-text mr-5"></i></span>
+        </div>
+        <div class="list p-3">
+          <%= display_users @users_to_follow, 'NO USER TO FOLLOW' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

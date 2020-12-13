@@ -1,0 +1,68 @@
+<div class="d-flex">
+  <%= render 'shared/left_navigation' %>
+  <div class="content">
+    <%= render 'shared/top_navigation' %>
+    <%= task_bar %>
+    <div class="d-flex main-content">
+      <div class="tweets d-flex flex-column">
+        <div class="cover_image d-flex justify-content-center align-items-center">
+          <%= cover_image @user %>
+          <%= cover_image_content @user%>
+        </div>
+        <div class="header">
+          <span class="ml-5 header-text">OPINIONS</span>
+        </div>
+        <div class="tweets_content px-5 d-flex flex-column">
+          <div class="tweet_list py-3 px-4 mt-4 mb-3">
+            <span class="title">OPINIONS</span>
+            <div class="line mt-3"></div>
+            <div class="list mt-3">
+              <%= display_opinions @user.opinions %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="user-to-follow">
+        <div class="user-profile-div d-flex flex-column">
+          <div class="profile d-flex justify-content-center align-items-center flex-column">
+            <div class="d-flex justify-content-center align-items-center ">
+              <div class="ml-1 follow_action">
+                <%= follow_button current_user, @user %>
+              </div>
+              <%= profile_image @user, 'profile_image_user' %>
+              <div class="ml-3 follow_action">
+                <%= follow_button current_user, @user %>
+              </div>
+            </div>
+            <div class="mt-2 d-flex flex-column mt-2">
+              <span class="text-center"><%= @user.fullname.upcase %></span>
+              <small class="text-center"><%= "@"+ @user.username %></small>
+            </div>
+          </div>
+          <div class="profile-info d-flex py-3">
+            <div class="followings d-flex flex-column justify-content-center align-items-center">
+              <span><%= @user.opinions.count %></span>
+              <small>Opinions</small>
+            </div>
+            <div class="followings d-flex flex-column justify-content-center align-items-center">
+              <span><%= @user.followings.count %></span>
+              <small>Followings</small>
+            </div>
+            <div class="followers d-flex flex-column justify-content-center align-items-center">
+              <span><%= @user.followers.count %></span>
+              <small>Followers</small>
+            </div>
+          </div>
+        </div>
+        <div class="header d-flex justify-content-between pr-3">
+          <span class="ml-5 header-text">FOLLOWED BY</span>
+        </div>
+        <div class="list p-3">
+          <%= display_users @user.followers, 'NO FOLLOWER' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_pack_tag 'upload_cover' %>
